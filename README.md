@@ -5,13 +5,19 @@ TSEasyStockManagement is ASP.NET Core (3.1), C#, EF code first web applications 
 
 ![Capture0004](https://user-images.githubusercontent.com/4595323/129177061-fb8aee44-16bb-4eeb-9d5e-22fa708e799c.PNG)
 
-# Technologies
+# Technical Features
 - Microsoft Visual Studio 2019
-- ASP.NET Core 3.1 
+- ASP.NET Core MVC 3.1 
 - Entity Framework Code First 
 - MS SQL SERVER 2019
 - JavaScript
-- JQuery data table, etc.
+- JQuery data table
+- Admin LTE
+- Bootstrap
+- Generic Repository
+- Dependency injection
+- Autofac
+- AutoMapper
 
 # How to Run Project
 - Step 1: Unzip the downloaded folder
