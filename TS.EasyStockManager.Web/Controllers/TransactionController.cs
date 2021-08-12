@@ -198,7 +198,7 @@ namespace TS.EasyStockManager.Web.Controllers
             if ((int)TransactionType.Transfer == transactionTypeId)
                 return "Transfer";
             else if ((int)TransactionType.StockIn == transactionTypeId)
-                return "Stock In";
+                return "Stock Receipt";
             else
                 return "Stock Out";
         }

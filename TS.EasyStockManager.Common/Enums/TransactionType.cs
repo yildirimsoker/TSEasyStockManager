@@ -7,7 +7,7 @@ namespace TS.EasyStockManager.Common.Enums
 {
     public enum TransactionType
     {
-        [Display(Name = "Stock In")]
+        [Display(Name = "Stock Receipt")]
         StockIn = 1,
         [Display(Name = "Stock Out")]
         StockOut = 2,
