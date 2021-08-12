@@ -1,7 +1,7 @@
-# TSEasyStockManager
-Asp.Net Core MVC - Product Stock Manager
+# TSEasyStockManagment
+Asp.Net Core MVC - Product Stock Management 
 
-TSEasyStockManager is ASP.NET Core (3.1), C#, EF code first web applications that help you to manage your all stock item.
+TSEasyStockManagement is ASP.NET Core (3.1), C#, EF code first web applications that help you to manage your all stock item.
 
 ![Capture0004](https://user-images.githubusercontent.com/4595323/129177061-fb8aee44-16bb-4eeb-9d5e-22fa708e799c.PNG)
 
