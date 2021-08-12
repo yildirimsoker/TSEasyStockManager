@@ -1,0 +1,105 @@
+﻿@model TS.EasyStockManager.Model.ViewModel.Product.SearchProductViewModel
+@{
+    ViewData["Title"] = "Product List";
+}
+
+<section class="content pt-2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-secondary">
+                    <div class="card-header">
+                        <h3 class="card-title">User Filter</h3>
+                    </div>
+                    <div class="card-body dataTable-search-form">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label asp-for="ProductName"></label>
+                                    <input asp-for="ProductName" type="text" class="form-control-sm form-control enter-keyup">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label asp-for="Barcode"></label>
+                                    <input asp-for="Barcode" type="text" class="form-control-sm form-control enter-keyup">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label asp-for="CategoryId"></label>
+                                    <select asp-for="CategoryId" class="form-control form-control-sm" asp-items="Model.CategoryList">
+                                        <option value="">Select Category</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label asp-for="UnitOfMeasureId"></label>
+                                    <select asp-for="UnitOfMeasureId" class="form-control form-control-sm" asp-items="Model.UnitOfMeasureList">
+                                        <option value="">Select Unit Of Measure</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-right">
+                                <button id="btnClear" type="button" class="btn btn-secondary btn-sm"><i class="fas fa-sync-alt"></i> Clear</button>
+                                <button id="btnFilter" type="button" class="btn btn-primary btn-sm"><i class="fas fa-search"></i> Filter</button>
+                                <a class="btn btn-info btn-sm" href="/Product/Create"><i class="fas fa-plus"></i> Create Product</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-secondary">
+                    <div class="card-header">
+                        <h3 class="card-title">User List</h3>
+                    </div>
+                    <div class="card-body">
+                        <table id="datatable" class="table table-bordered table-hover dt-responsive nowrap w-100">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Product Name</th>
+                                    <th>Barcode</th>
+                                    <th>Price</th>
+                                    <th>Category</th>
+                                    <th>Unit Of Measure</th>
+                                    <th style="width:15%">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Product Name</th>
+                                    <th>Barcode</th>
+                                    <th>Price</th>
+                                    <th>Category</th>
+                                    <th>Unit Of Measure</th>
+                                    <th style="width:15%">Actions</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section style{
+    <partial name="~/Views/Shared/_DataTableStylePartial.cshtml" />
+}
+@section script{
+    <partial name="~/Views/Shared/_DataTableScriptPartial.cshtml" />
+    <script src="~/pages/product/product-list.js"></script>
+}
+

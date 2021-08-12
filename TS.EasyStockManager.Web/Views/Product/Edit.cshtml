@@ -1,0 +1,77 @@
+﻿@model TS.EasyStockManager.Model.ViewModel.Product.EditProductViewModel
+@{
+    ViewData["Title"] = "Edit Product";
+}
+@section script{
+    <partial name="~/Views/Shared/_FormScriptsPartial.cshtml" />
+    <script src="~/pages/product/product-image-delete.js"></script>
+}
+<section class="content pt-2">
+    <div class="container-fluid ">
+        <div class="row ">
+            <div class="col-md-8">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Edit Product</h3>
+                    </div>
+                    <form asp-action="Edit" asp-antiforgery="true" id="frmCreate">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label asp-for="ProductName"></label>
+                                <input asp-for="ProductName" type="text" class="form-control">
+                                <span asp-validation-for="ProductName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Barcode"></label>
+                                <input asp-for="Barcode" type="text" class="form-control">
+                                <span asp-validation-for="Barcode" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Price"></label>
+                                <input asp-for="Price" type="text" class="form-control">
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="CategoryId"></label>
+                                <select asp-for="CategoryId" class="form-control" asp-items="Model.CategoryList">
+                                    <option value="">Select Category</option>
+                                </select>
+                                <span asp-validation-for="CategoryId" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="UnitOfMeasureId"></label>
+                                <select asp-for="UnitOfMeasureId" class="form-control" asp-items="Model.UnitOfMeasureList">
+                                    <option value="">Select Unit Of Measure</option>
+                                </select>
+                                <span asp-validation-for="UnitOfMeasureId" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Description"></label>
+                                <textarea asp-for="Description" rows="4" class="form-control"></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                            @if (!string.IsNullOrEmpty(Model.Image))
+                            {
+                                <div class="form-group" id="delete-image-main">
+                                    <label asp-for="ImageFile"></label>
+                                    <img height="150" src="/upload/@Model.Image" />
+                                    <button id="btnDeleteImage" data-id="@Model.Id" type="button" class="btn btn-danger">Delete Image</button>
+                                </div>
+                            }
+                            <div class="form-group">
+                                <label asp-for="ImageFile"></label>
+                                <input asp-for="ImageFile" type="file" class="form-control">
+                                <span asp-validation-for="ImageFile" class="text-danger"></span>
+                                <input type="hidden" asp-for="Image" />
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <a class="btn btn-default" href="/Product">Back</a>
+                            <button id="btnSave" type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

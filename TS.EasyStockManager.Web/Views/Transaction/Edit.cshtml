@@ -1,0 +1,204 @@
+﻿@model TS.EasyStockManager.Model.ViewModel.Transaction.EditTransactionViewModel
+@{
+    ViewData["Title"] = "Edit Transaction";
+}
+
+<section class="content pt-2">
+    <div class="container-fluid ">
+        <div class="row ">
+            <div class="col-md-12">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Update @Model.PageName</h3>
+                    </div>
+                    <form asp-action="Edit" asp-antiforgery="true" id="frmCreate">
+                        <input type="hidden" asp-for="TransactionTypeId" />
+                        <input type="hidden" asp-for="TransactionDetailCount" />
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="TransactionCode"></label>
+                                        <input asp-for="TransactionCode" type="text" class="form-control">
+                                        <span asp-validation-for="TransactionCode" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                @if (Model.TransactionTypeId != (int)TS.EasyStockManager.Common.Enums.TransactionType.Transfer)
+                                {
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label asp-for="StoreId"></label>
+                                            <select asp-for="StoreId" class="form-control" asp-items="Model.StoreList">
+                                                <option value="">Select Store</option>
+                                            </select>
+                                            <span asp-validation-for="StoreId" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label asp-for="StoreId"></label>
+                                            <select asp-for="StoreId" class="form-control" asp-items="Model.StoreList">
+                                                <option value="">Select Store</option>
+                                            </select>
+                                            <span asp-validation-for="StoreId" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label asp-for="ToStoreId"></label>
+                                            <select asp-for="ToStoreId" class="form-control" asp-items="Model.ToStoreList">
+                                                <option value="">Select Store</option>
+                                            </select>
+                                            <span asp-validation-for="ToStoreId" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="TransactionDate"></label>
+                                        <input asp-for="TransactionDate" type="text" class="form-control datepicker">
+                                        <span asp-validation-for="TransactionDate" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label asp-for="Description"></label>
+                                        <input asp-for="Description" type="text" class="form-control">
+                                        <span asp-validation-for="Description" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Detail</p>
+                                    <table id="table-detail" class=" table table-bordered table-form-crate">
+                                        <thead>
+                                            <tr>
+                                                <td>Product</td>
+                                                <td>Amount</td>
+                                                <td></td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @for (int i = 0; i < Model.TransactionDetail.Count; i++)
+                                            {
+                                                <tr>
+                                                    <td class="col-md-5">
+                                                        <select asp-for="TransactionDetail[i].ProductId" class="form-control f-select2">
+                                                            <option value="@Model.TransactionDetail[i].ProductId">@Model.TransactionDetail[i].Barcode @Model.TransactionDetail[i].ProductName</option>
+                                                        </select>
+                                                        <span class="text-danger field-validation-valid" data-valmsg-for="@Model.TransactionDetail[i].ProductId" data-valmsg-replace="true"></span>
+                                                    </td>
+                                                    <td class="col-md-5">
+                                                        <input required type="number" asp-for="TransactionDetail[i].Amount" class="form-control" step="any" min="0.1" />
+                                                        <span class="text-danger field-validation-valid" data-valmsg-for="@Model.TransactionDetail[i].Amount" data-valmsg-replace="true"></span>
+                                                    </td>
+                                                    <td class="col-md-2">
+                                                        @if (i > 0)
+                                                        {
+                                                        <input type="button" class="ibtnDel btn btn-md btn-danger" value="Delete">
+                                                        }
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="5" style="text-align: left;">
+                                                    <input type="button" class="btn btn-lg btn-block btn-success" id="addrow" value="Add Row" />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <a class="btn btn-default" href="/Transaction">Back</a>
+                            <button id="btnSave" type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section style{
+
+    <link href="~/plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <link href="~/plugins/icheck-bootstrap/icheck-bootstrap.min.css" rel="stylesheet">
+    <link href="~/plugins/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="~/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" rel="stylesheet" />
+}
+@section script{
+    <script src="~/plugins/select2/js/select2.full.min.js"></script>
+    <script src="~/plugins/moment/moment.min.js"></script>
+    <script src="~/plugins/daterangepicker/daterangepicker.js"></script>
+    <partial name="~/Views/Shared/_FormScriptsPartial.cshtml" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.select2').select2();
+            $('.datepicker').daterangepicker({
+                singleDatePicker: true,
+                showDropdowns: true
+            });
+
+            setSelect2(".f-select2");
+
+            function setSelect2(element) {
+                $(element).select2({
+                    minimumInputLength: 1,
+                    ajax: {
+                        url: '/Transaction/GetProduct',
+                        dataType: 'json',
+                        type: "GET",
+                        delay: 500,
+                        data: function (params) {
+                            return {
+                                search: params.term
+                            };
+                        },
+                        processResults: function (data) {
+                            return {
+                                results: $.map(data, function (item) {
+                                    return {
+                                        text: item.Text,
+                                        id: item.Value
+                                    }
+                                })
+                            };
+                        }
+                    }
+                });
+            }
+
+            var counter = $("#TransactionDetailCount").val();
+            $("#addrow").on("click", function () {
+                var newRow = $("<tr>");
+                var cols = "";
+                cols += '<td><select class="form-control" name="TransactionDetail[' + counter + '].ProductId" id="ProductId' + counter + '"></select></td>';
+                cols += '<td><input type="number" name="TransactionDetail[' + counter + '].Amount" class="form-control" step="any" /></td>';
+                cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger"  value="Delete"></td>';
+                newRow.append(cols);
+                $("table#table-detail").append(newRow);
+                setSelect2("#ProductId" + counter);
+                counter++;
+            });
+            $("table#table-detail").on("click", ".ibtnDel", function (event) {
+                $(this).closest("tr").remove();
+                counter -= 1
+            });
+
+        });
+
+    </script>
+}

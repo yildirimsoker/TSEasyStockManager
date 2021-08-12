@@ -1,0 +1,48 @@
+﻿@model TS.EasyStockManager.Model.ViewModel.User.EditUserViewModel
+@{
+    ViewData["Title"] = "Edit User";
+}
+@section script{
+    <partial name="~/Views/Shared/_FormScriptsPartial.cshtml" />
+}
+<section class="content pt-2">
+    <div class="container-fluid ">
+        <div class="row ">
+            <div class="col-md-6">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Edit User</h3>
+                    </div>
+                    <form asp-action="Edit" asp-antiforgery="true" id="frmCreate">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label asp-for="Email"></label>
+                                <input asp-for="Email" type="text" class="form-control">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Password"></label>
+                                <input asp-for="Password" type="password" class="form-control">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Name"></label>
+                                <input asp-for="Name" type="text" class="form-control">
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Surname"></label>
+                                <input asp-for="Surname" type="text" class="form-control">
+                                <span asp-validation-for="Surname" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <a class="btn btn-default" href="/User">Back</a>
+                            <button id="btnSave" type="submit" class="btn btn-primary">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

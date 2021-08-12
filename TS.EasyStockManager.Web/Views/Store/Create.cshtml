@@ -1,0 +1,38 @@
+﻿@model TS.EasyStockManager.Model.ViewModel.Store.CreateStoreViewModel
+@{
+    ViewData["Title"] = "Create Store";
+}
+@section script{
+    <partial name="~/Views/Shared/_FormScriptsPartial.cshtml" />
+}
+<section class="content pt-2">
+    <div class="container-fluid ">
+        <div class="row ">
+            <div class="col-md-6">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Create Store</h3>
+                    </div>
+                    <form asp-action="Create" asp-antiforgery="true" id="frmCreate">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label asp-for="StoreName"></label>
+                                <input asp-for="StoreName" type="text" class="form-control">
+                                <span asp-validation-for="StoreName" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="StoreCode"></label>
+                                <input asp-for="StoreCode" type="text" class="form-control">
+                                <span asp-validation-for="StoreCode" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <a class="btn btn-default" href="/Store">Back</a>
+                            <button id="btnSave" type="submit" class="btn btn-primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

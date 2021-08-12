@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TS.EasyStockManager.Core\TS.EasyStockManager.Core.csproj" />
+    <ProjectReference Include="..\TS.EasyStockManager.Data\TS.EasyStockManager.Data.csproj" />
+    <ProjectReference Include="..\TS.EasyStockManager.Repository\TS.EasyStockManager.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

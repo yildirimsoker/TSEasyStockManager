@@ -1,0 +1,73 @@
+﻿@model TS.EasyStockManager.Model.ViewModel.Category.SearchCategoryViewModel
+@{
+    ViewData["Title"] = "Category List";
+}
+
+<section class="content pt-2">
+    <div class="container-fluid">
+        <div class="row ">
+            <div class="col-md-12">
+                <div class="card card-secondary">
+                    <div class="card-header">
+                        <h3 class="card-title">Category Filter</h3>
+                    </div>
+                    <div class="card-body dataTable-search-form">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label asp-for="CategoryName"></label>
+                                    <input asp-for="CategoryName" type="text" class="form-control-sm form-control enter-keyup">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-right">
+                                <button id="btnClear" type="button" class="btn btn-secondary btn-sm"><i class="fas fa-sync-alt"></i> Clear</button>
+                                <button id="btnFilter" type="button" class="btn btn-primary btn-sm"><i class="fas fa-search"></i> Filter</button>
+                                <a class="btn btn-info btn-sm" href="/Category/Create"><i class="fas fa-plus"></i> Create Category</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-secondary">
+                    <div class="card-header">
+                        <h3 class="card-title">Category List</h3>
+                    </div>
+                    <div class="card-body">
+                        <table id="datatable" class="table table-bordered table-hover dt-responsive nowrap w-100">
+                            <thead>
+                                <tr>
+                                    <th>Category Name</th>
+                                    <th style="width:15%">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Category Name</th>
+                                    <th style="width:15%">Actions</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section style{
+    <partial name="~/Views/Shared/_DataTableStylePartial.cshtml" />
+}
+@section script{
+    <partial name="~/Views/Shared/_DataTableScriptPartial.cshtml" />
+    <script src="~/pages/category/category-list.js"></script>
+}

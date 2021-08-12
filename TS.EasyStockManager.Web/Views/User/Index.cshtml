@@ -1,0 +1,89 @@
+﻿@model TS.EasyStockManager.Model.ViewModel.User.SearchUserViewModel
+@{
+    ViewData["Title"] = "User List";
+}
+
+<section class="content pt-2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-secondary">
+                    <div class="card-header">
+                        <h3 class="card-title">User Filter</h3>
+                    </div>
+                    <div class="card-body dataTable-search-form">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label asp-for="Email"></label>
+                                    <input asp-for="Email" type="text" class="form-control-sm form-control enter-keyup">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label asp-for="Name"></label>
+                                    <input asp-for="Name" type="text" class="form-control-sm form-control enter-keyup">
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label asp-for="Surname"></label>
+                                    <input asp-for="Surname" type="text" class="form-control-sm form-control enter-keyup">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-right">
+                                <button id="btnClear" type="button" class="btn btn-secondary btn-sm"><i class="fas fa-sync-alt"></i> Clear</button>
+                                <button id="btnFilter" type="button" class="btn btn-primary btn-sm"><i class="fas fa-search"></i> Filter</button>
+                                <a class="btn btn-info btn-sm" href="/User/Create"><i class="fas fa-plus"></i> Create User</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-secondary">
+                    <div class="card-header">
+                        <h3 class="card-title">User List</h3>
+                    </div>
+                    <div class="card-body">
+                        <table id="datatable" class="table table-bordered table-hover dt-responsive nowrap w-100">
+                            <thead>
+                                <tr>
+                                    <th>Email</th>
+                                    <th>Name</th>
+                                    <th>Surname</th>
+                                    <th style="width:15%">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Email</th>
+                                    <th>Name</th>
+                                    <th>Surname</th>
+                                    <th style="width:15%">Actions</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section style{
+    <partial name="~/Views/Shared/_DataTableStylePartial.cshtml" />
+}
+@section script{
+    <partial name="~/Views/Shared/_DataTableScriptPartial.cshtml" />
+    <script src="~/pages/user/user-list.js"></script>
+}
+

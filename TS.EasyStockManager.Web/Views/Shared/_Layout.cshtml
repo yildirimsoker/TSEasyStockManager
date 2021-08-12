@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TS.EasyStockManager.Web</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.css" />
+    <link rel="stylesheet" href="~/plugins/toastr/toastr.min.css">
+    @RenderSection("style", false)
+    <link rel="stylesheet" href="~/dist/css/adminlte.min.css" />
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light d-block d-sm-none">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i> Menu</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="index3.html" class="brand-link">
+                <img src="/dist/img/AdminLTELogo.png" alt="TS Stock" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <span class="brand-text font-weight-light">TS Stock</span>
+            </a>
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar Menu -->
+                <partial name="~/Views/Shared/_SidebarPartial.cshtml" />
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            @RenderBody()
+        </div>
+        <!-- /.content-wrapper -->
+        <!-- Main Footer -->
+        <footer class="main-footer">
+            <!-- Default to the left -->
+            <strong>Copyright &copy;  2021 </strong> TS Easy Stock Manager.
+        </footer>
+    </div>
+    <!-- ./wrapper -->
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="~/plugins/jquery/jquery.min.js"></script>
+    <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/plugins/toastr/toastr.min.js"></script>
+    @RenderSection("script", false)
+    <script src="~/dist/js/adminlte.min.js"></script>
+
+</body>
+</html>

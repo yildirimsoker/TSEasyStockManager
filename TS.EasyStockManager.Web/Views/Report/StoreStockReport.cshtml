@@ -1,0 +1,86 @@
+﻿@model TS.EasyStockManager.Model.ViewModel.Report.StoreStock.SearchStoreStockReportViewModel
+@{
+    ViewData["Title"] = "Store Stock Report";
+}
+
+<section class="content pt-2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-secondary">
+                    <div class="card-header">
+                        <h3 class="card-title">Store Stock Report Filter</h3>
+                    </div>
+                    <div class="card-body dataTable-search-form">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label asp-for="StoreId"></label>
+                                    <select asp-for="StoreId" class="form-control form-control-sm" asp-items="Model.StoreList">
+                                        <option value="">Select Store</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label asp-for="ProductId"></label>
+                                    <select asp-for="ProductId" class="form-control form-control-sm">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-right">
+                                <button id="btnClear" type="button" class="btn btn-secondary btn-sm"><i class="fas fa-sync-alt"></i> Clear</button>
+                                <button id="btnFilter" type="button" class="btn btn-primary btn-sm"><i class="fas fa-search"></i> Filter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-secondary">
+                    <div class="card-header">
+                        <h3 class="card-title">Store Stock Report</h3>
+                    </div>
+                    <div class="card-body">
+                        <table id="datatable" class="table table-bordered table-hover dt-responsive nowrap w-100">
+                            <thead>
+                                <tr>
+                                    <th>Store</th>
+                                    <th>Product</th>
+                                    <th>QTY</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Store</th>
+                                    <th>Product</th>
+                                    <th>QTY</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section style{
+    <partial name="~/Views/Shared/_DataTableStylePartial.cshtml" />
+    <link href="~/plugins/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="~/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" rel="stylesheet" />
+}
+@section script{
+    <partial name="~/Views/Shared/_DataTableScriptPartial.cshtml" />
+    <script src="~/plugins/select2/js/select2.full.min.js"></script>
+    <script src="~/pages/report/store-stock-report.js"></script>
+}
+
+

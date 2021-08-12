@@ -1,0 +1,55 @@
+﻿@model TS.EasyStockManager.Model.ViewModel.Auth.LoginViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TS Easy Stock Manager | Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="~/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/plugins/toastr/toastr.min.css">
+    <link href="~/plugins/icheck-bootstrap/icheck-bootstrap.min.css" rel="stylesheet" />
+    <link href="~/dist/css/adminlte.min.css" rel="stylesheet" />
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <b>TS</b> Easy Stock Manager
+        </div>
+        <div class="card">
+            <div class="card-body login-card-body">
+                <form asp-action="Login" asp-antiforgery="true" id="frmCreate">
+                    <div class="form-group">
+                        <label asp-for="Email"></label>
+                        <input asp-for="Email" type="email" class="form-control">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Password"></label>
+                        <input asp-for="Password" type="password" class="form-control">
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="~/plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="~/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/plugins/toastr/toastr.min.js"></script>
+    <script src="~/dist/js/adminlte.min.js"></script>
+    <partial name="~/Views/Shared/_FormScriptsPartial.cshtml" />
+</body>
+</html>
+

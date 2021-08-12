@@ -1,0 +1,132 @@
+﻿@model TS.EasyStockManager.Model.ViewModel.Report.TransactionDetail.SearchTransactionDetailReportViewModel
+@{
+    ViewData["Title"] = "Transaction Detail Report";
+}
+
+<section class="content pt-2">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-secondary">
+                    <div class="card-header">
+                        <h3 class="card-title">Transaction Detail Report Filter</h3>
+                    </div>
+                    <div class="card-body dataTable-search-form">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label asp-for="TransactionCode"></label>
+                                    <input asp-for="TransactionCode" type="text" class="form-control-sm form-control enter-keyup">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label asp-for="ProductId"></label>
+                                    <select asp-for="ProductId" class="form-control form-control-sm">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label asp-for="TransactionTypeId"></label>
+                                    <select asp-for="TransactionTypeId" class="form-control form-control-sm" asp-items="Html.GetEnumSelectList<TS.EasyStockManager.Common.Enums.TransactionType>()">
+                                        <option value="">Select Transaction Type</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label asp-for="SearchStartDate"></label>
+                                    <input asp-for="SearchStartDate" type="text" class="form-control-sm form-control enter-keyup datepicker">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label asp-for="SearchEndDate"></label>
+                                    <input asp-for="SearchEndDate" type="text" class="form-control-sm form-control enter-keyup datepicker">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label asp-for="StoreId"></label>
+                                    <select asp-for="StoreId" class="form-control form-control-sm" asp-items="Model.StoreList">
+                                        <option value="">Select Store</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label asp-for="ToStoreId"></label>
+                                    <select asp-for="ToStoreId" class="form-control form-control-sm" asp-items="Model.ToStoreList">
+                                        <option value="">Select To Store</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12 text-right">
+                                <button id="btnClear" type="button" class="btn btn-secondary btn-sm"><i class="fas fa-sync-alt"></i> Clear</button>
+                                <button id="btnFilter" type="button" class="btn btn-primary btn-sm"><i class="fas fa-search"></i> Filter</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-secondary">
+                    <div class="card-header">
+                        <h3 class="card-title">Store Stock Report</h3>
+                    </div>
+                    <div class="card-body">
+                        <table id="datatable" class="table table-bordered table-hover dt-responsive nowrap w-100">
+                            <thead>
+                                <tr>
+                                    <th>Transaction Code</th>
+                                    <th>Transaction Type</th>
+                                    <th>Product</th>
+                                    <th>Store</th>
+                                    <th>To Store</th>
+                                    <th>QTY</th>
+                                    <th>Transaction Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Transaction Code</th>
+                                    <th>Transaction Type</th>
+                                    <th>Product</th>
+                                    <th>Store</th>
+                                    <th>To Store</th>
+                                    <th>QTY</th>
+                                    <th>Transaction Date</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section style{
+    <partial name="~/Views/Shared/_DataTableStylePartial.cshtml" />
+    <link href="~/plugins/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="~/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/plugins/daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <link href="~/plugins/icheck-bootstrap/icheck-bootstrap.min.css" rel="stylesheet">
+}
+@section script{
+    <partial name="~/Views/Shared/_DataTableScriptPartial.cshtml" />
+    <script src="~/plugins/select2/js/select2.full.min.js"></script>
+    <script src="~/plugins/moment/moment.min.js"></script>
+    <script src="~/plugins/daterangepicker/daterangepicker.js"></script>
+    <script src="~/pages/report/transaction-deatil-report.js"></script>
+}
+
+
