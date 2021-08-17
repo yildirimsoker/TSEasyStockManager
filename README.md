@@ -16,7 +16,6 @@ TSEasyStockManagement is ASP.NET Core (3.1), C#, EF code first web applications 
 - Bootstrap
 - Generic Repository
 - Dependency injection
-- Autofac
 - AutoMapper
 
 # How to Run Project
