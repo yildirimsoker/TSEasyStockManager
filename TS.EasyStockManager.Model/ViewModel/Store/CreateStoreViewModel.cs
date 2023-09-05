@@ -10,12 +10,12 @@ namespace TS.EasyStockManager.Model.ViewModel.Store
     {
         [Required]
         [MaxLength(30)]
-        [Display(Name = "Store Name")]
+        [Display(Name = "Mağaza Adı")]
         public string StoreName { get; set; }
 
         [Required]
         [MaxLength(10)]
-        [Display(Name = "Store Code")]
+        [Display(Name = "Mağaza Kodu")]
         public string StoreCode { get; set; }
 
     }

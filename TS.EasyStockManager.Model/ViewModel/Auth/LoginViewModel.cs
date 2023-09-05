@@ -16,7 +16,7 @@ namespace TS.EasyStockManager.Model.ViewModel.Auth
 
         [Required]
         [MaxLength(18)]
-        [Display]
+        [Display(Name ="Parola")]
         public string Password { get; set; }
 
         public bool Remember { get; set; }

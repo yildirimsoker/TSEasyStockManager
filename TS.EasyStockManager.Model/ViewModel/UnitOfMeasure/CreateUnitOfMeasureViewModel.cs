@@ -10,13 +10,13 @@ namespace TS.EasyStockManager.Model.ViewModel.UnitOfMeasure
     {
         [Required]
         [MaxLength(30)]
-        [Display(Name = "Unit of Measure Name")]
+        [Display(Name = "Ölçü İsmi")]
         public string UnitOfMeasureName { get; set; }
 
 
         [Required]
         [MaxLength(3)]
-        [Display(Name = "Unit of Measure Short Code")]
+        [Display(Name = "Ölçü Kodu")]
         public string Isocode { get; set; }
 
     }

@@ -13,31 +13,31 @@ namespace TS.EasyStockManager.Model.ViewModel.Product
 
         [Required]
         [MaxLength(100)]
-        [Display(Name = "Product Name")]
+        [Display(Name = "Malzeme Adı")]
         public string ProductName { get; set; }
 
         [MaxLength(50)]
         [Display(Name = "Barcode")]
         public string Barcode { get; set; }
 
-        [Display(Name = "Description")]
+        [Display(Name = "Açıklama")]
         public string Description { get; set; }
 
-        [Display(Name = "Image")]
+        [Display(Name = "Resim")]
         public string Image { get; set; }
 
-        [Display(Name = "Image")]
+        [Display(Name = "Resim")]
         [RegularExpression(@"^.*\.(jpg|JPG|png|PNG|jpeg|JPEG)$")]
         public IFormFile ImageFile { get; set; }
 
         [Display(Name = "Price")]
         public decimal? Price { get; set; }
 
-        [Display(Name = "Category")]
+        [Display(Name = "Kategori")]
         public int? CategoryId { get; set; }
 
         [Required]
-        [Display(Name = "Unit Of Measure")]
+        [Display(Name = "Ölçü Birimi")]
         public int UnitOfMeasureId { get; set; }
 
         public IEnumerable<SelectListItem> CategoryList { get; set; }

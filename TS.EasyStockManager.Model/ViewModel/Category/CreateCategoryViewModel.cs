@@ -10,7 +10,7 @@ namespace TS.EasyStockManager.Model.ViewModel.Category
     {
         [Required]
         [MaxLength(30)]
-        [Display(Name = "Category Name")]
+        [Display(Name = "Kategori İsmi")]
         public string CategoryName { get; set; }
     }
 }

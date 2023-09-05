@@ -11,16 +11,16 @@ namespace TS.EasyStockManager.Model.ViewModel.Product
     public class SearchProductViewModel : BaseViewModel
     {
       
-        [Display(Name = "Product Name")]
+        [Display(Name = "Ürün İsmi")]
         public string ProductName { get; set; }
  
         [Display(Name = "Barcode")]
         public string Barcode { get; set; }
 
-        [Display(Name = "Category")]
+        [Display(Name = "Kategori")]
         public int? CategoryId { get; set; }
   
-        [Display(Name = "Unit Of Measure")]
+        [Display(Name = "Ölçü")]
         public int? UnitOfMeasureId { get; set; }
 
         public IEnumerable<SelectListItem> CategoryList { get; set; }

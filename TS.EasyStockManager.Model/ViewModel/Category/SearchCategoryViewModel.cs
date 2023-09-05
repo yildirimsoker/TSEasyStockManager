@@ -9,7 +9,7 @@ namespace TS.EasyStockManager.Model.ViewModel.Category
     public class SearchCategoryViewModel: BaseViewModel
     {
 
-        [Display(Name = "Category Name")]
+        [Display(Name = "Kategori İsmi")]
         public string CategoryName { get; set; }
 
     }

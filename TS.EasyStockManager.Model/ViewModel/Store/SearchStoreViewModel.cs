@@ -9,11 +9,11 @@ namespace TS.EasyStockManager.Model.ViewModel.Store
     public class SearchStoreViewModel : BaseViewModel
     {
 
-        [Display(Name = "Store Name")]
+        [Display(Name = "Mağaza Adı")]
         public string StoreName { get; set; }
 
 
-        [Display(Name = "Store Code")]
+        [Display(Name = "Mağaza Kodu")]
         public string StoreCode { get; set; }
     }
 }
